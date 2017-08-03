@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,">
+		<style>
+			body {
+				background: #00d2ff;  /* fallback for old browsers */
+				background: -webkit-linear-gradient(to top, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to top, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				height: 100vh;
+				color: #252525;
+				font-weight: lighter;
+				font-family: sans-serif;
+			}
+			#formport {
+				background: #ffffff;
+				padding: 10px 10px 10px 10px;
+				border-radius: 6px;
+				width: 90%;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 20px;
+				min-height: 60vh;
+			}
+			#titl {
+				font-size: 30px;
+				color: #ffffff;
+				font-weight: lighter;
+			}
+			#wrap {
+				width: 90%;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 20px;
+			}
+			.bidput {
+				border: none;
+				border-bottom: solid;
+				border-bottom-width: 2px;
+				border-bottom-color: #969EA4;
+				width: 100%;
+				outline: none;
+				font-size: 25px;
+				padding: 5px;
+				font-weight: lighter;
+			}
+			#ques {
+				color: #252525;
+				font-size: 20px;
+				margin-top: 20px;
+			}
+			#type {
+				color: #969EA4;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<span id="titl">Penster</span>
+		</div>
+		<div id="formport">
+			<div id="wrap">
+				<div id="formone">
+					<span id="type">必須</span><br>
+					<span id="ques">レポートのタイトルを入力してください</span><br><br>
+					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()">
+				</div>
+			</div>
+		</div>
+		<div id="wrap" style="text-align: center;">
+					<button disabled="true">次のステップ</button>
+		</div>
+	</body>
+</html>
