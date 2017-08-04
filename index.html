@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width,">
 		<style>
 			body {
-				background: #00d2ff;  /* fallback for old browsers */
-				background: -webkit-linear-gradient(to top, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
-				background: linear-gradient(to top, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				background: #93C8D9;  /* fallback for old browsers */
+				background: -webkit-linear-gradient(to bottom, #93C8D9, #446786);  /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to bottom, #93C8D9, #446786); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 				height: 100vh;
 				color: #252525;
 				font-weight: lighter;
@@ -21,12 +21,12 @@
 				margin-right: auto;
 				margin-left: auto;
 				margin-top: 20px;
-				min-height: 60vh;
+				min-height: 300px;
 			}
 			#titl {
 				font-size: 30px;
 				color: #ffffff;
-				font-weight: lighter;
+				font-weight: bold;
 			}
 			#wrap {
 				width: 90%;
@@ -44,7 +44,9 @@
 				font-size: 25px;
 				padding: 5px;
 				-webkit-appearance: none;
+				-moz-appearance: none;
 				font-weight: lighter;
+				border-radius: 0px;
 			}
 			#ques {
 				color: #252525;
@@ -57,6 +59,22 @@
 			}
 			button {
 				-webkit-appearance: none;
+				-moz-appearance: none;
+			}
+			.output {
+				background: transparent;
+				color: #ffffff;
+				border: none;
+				font-size: 25px;
+				font-weight: lighter;
+				opacity: 1;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			.output:disabled {
+				opacity: 0.5;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
 			}
 		</style>
 	</head>
@@ -74,7 +92,17 @@
 			</div>
 		</div>
 		<div id="wrap" style="text-align: center;">
-					<button disabled="true">次のステップ</button>
+					<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
+		<script>
+			function checkcon() {
+				var check = document.getElementById("ansone").value.length;
+				if(check < 1) {
+					document.getElementById("nxtbtn").disabled = true;
+				} else {
+					document.getElementById("nxtbtn").disabled = false;
+				}
+			}
+		</script>
 	</body>
 </html>
