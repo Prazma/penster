@@ -3,7 +3,12 @@
 	<head>
 		<title>Penster</title>
 		<meta name="viewport" content="width=device-width,">
+		<script src="https://raw.githubusercontent.com/lazd/iNoBounce/master/inobounce.js"></script>
 		<style>
+			html {
+				overflow: auto;
+				-webkit-overflow-scrolling: touch;
+			}
 			body {
 				background: #93C8D9;  /* fallback for old browsers */
 				background: -webkit-linear-gradient(to bottom, #93C8D9, #446786);  /* Chrome 10-25, Safari 5.1-6 */
@@ -65,7 +70,7 @@
 				background: transparent;
 				color: #ffffff;
 				border: none;
-				font-size: 25px;
+				font-size: 20px;
 				font-weight: lighter;
 				opacity: 1;
 				transition: 0.5s;
@@ -92,7 +97,8 @@
 			</div>
 		</div>
 		<div id="wrap" style="text-align: center;">
-					<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
+				<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
+				<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
 		<script>
 			function checkcon() {
