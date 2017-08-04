@@ -27,6 +27,8 @@
 				margin-left: auto;
 				margin-top: 20px;
 				min-height: 300px;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
 			}
 			#titl {
 				font-size: 30px;
@@ -89,9 +91,14 @@
 		</div>
 		<div id="formport">
 			<div id="wrap">
-				<div id="formone">
+				<div id="formone" class="xsd">
 					<span id="type">必須</span><br>
 					<span id="ques">レポートのタイトルを入力してください</span><br><br>
+					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()">
+				</div>
+				<div id="formtwo" style="display: none;" class="xsd">
+					<span id="type">必須</span><br>
+					<span id="ques">POOPUS 11</span><br><br>
 					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()">
 				</div>
 			</div>
@@ -100,6 +107,10 @@
 				<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
 				<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
+		<div stye="display: none">
+			<span id="formstat">1</span>
+			<span id="docstitl">1</span>
+		</div>
 		<script>
 			function checkcon() {
 				var check = document.getElementById("ansone").value.length;
@@ -107,6 +118,21 @@
 					document.getElementById("nxtbtn").disabled = true;
 				} else {
 					document.getElementById("nxtbtn").disabled = false;
+				}
+			}
+			function nxtq() {
+				var qnum = document.getElementById("formstat").innerHTML;
+				if(qnum == "1") {
+					var titl = document.getElementById("ansone").value;
+					document.getElementById("docstitl").innerHTML = titl;
+					document.getElementById("formone").style.opacity = "0";
+					setTimeout( function () {
+						document.getElementById("formone").style.display = "none";
+						document.getElementById("formtwo").style.display = "block";
+						document.getElementById("formtwo").style.opacity = "1";
+					}, 500)
+					document.getElementById("nxtbtn").disabled = true;
+					document.getElementById("bckbtn").disabled = false;
 				}
 			}
 		</script>
