@@ -22,6 +22,7 @@
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				height: 100vh;
+				margin: 0;
 				color: #252525;
 				font-weight: lighter;
 				font-family: sans-serif;
@@ -39,6 +40,11 @@
 			}
 			#titl {
 				font-size: 30px;
+				color: #ffffff;
+				font-weight: bold;
+			}
+			#subtitl {
+				font-size: 17px;
 				color: #ffffff;
 				font-weight: bold;
 			}
@@ -109,6 +115,17 @@
 				font-weight: bold;
 				margin-top: 10px;
 			}
+			#splash {
+				background: #6FA3C9;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				text-align: center;
+				border: none;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
 	</head>
@@ -151,6 +168,12 @@
 			<span id="selexp">nan</span>
 		</div>
 		<script>
+			setTimeout( function () {
+				document.getElementById("splash").style.opacity = "0";
+			}, 1000)
+			setTimeout( function () {
+				document.getElementById("splash").style.display = "none";
+			}, 1500)
 			function pckchk() {
 				sclltop();
 				var lio = document.getElementById("pcklio").innerHTML;
@@ -273,5 +296,9 @@
 				document.documentElement.scrollTop = 0;
 			}
 		</script>
+		<div id="splash">
+			<br><br><span id="titl">Penster</span><br>
+			<br><span id="subtitl">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span>
+		</div>
 	</body>
 </html>
