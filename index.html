@@ -98,17 +98,16 @@
 				text-align: center;
 			}
 			.chk {
-				width: 20px;
-				height: 20px;
+				width: 100%;
+				padding: 10px;
+				font-size: 18px;
 				background: transparent;
 				border: solid;
-				border-width: 1px;
-				border-color: #bfbfbf;
-				border-radius: 2px;
-				margin-right: 10px;
-			}
-			.chk:hover {
-				background: #6FA3C9;
+				border-width: 3px;
+				border-color: #6FA3C9;
+				border-radius: 3px;
+				font-weight: bold;
+				margin-top: 10px;
 			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
@@ -127,7 +126,9 @@
 				<div id="formtwo" style="display: none;" class="xsd">
 					<span id="type">必須</span><br>
 					<span id="ques">レポートは以下のものは必要ですか？</span><br><br>
-					<button class="chk" onclick="pckchk()"></button><span>写真・画像</span>
+					<button class="chk" id="pck" onclick="pckchk()">画像・写真</button>
+					<button class="chk" id="grp" onclick="grpchk()">図やグラフ</button>
+					<button class="chk" id="exp" onclick="expchk()">研究・調査</button>
 				</div>
 			</div>
 		</div>
@@ -138,9 +139,47 @@
 		<div style="display: none">
 			<span id="formstat">1</span>
 			<span id="docstitl">1</span>
+			<span id="pcklio">0</span>
+			<span id="grplio">0</span>
+			<span id="explio">0</span>
 		</div>
 		<script>
-			function pckchk() {}
+			function pckchk() {
+				var lio = document.getElementById("pcklio").innerHTML;
+				if(lio == "0") {
+					document.getElementById("pck").style.background = "#6FA3C9";
+					document.getElementById("pck").style.color = "#ffffff";
+					document.getElementById("pcklio").innerHTML = "1";
+				} else {
+					document.getElementById("pck").style.background = "transparent";
+					document.getElementById("pck").style.color = "#000000";
+					document.getElementById("pcklio").innerHTML = "0";
+				}
+			}
+			function grpchk() {
+				var lio = document.getElementById("grplio").innerHTML;
+				if(lio == "0") {
+					document.getElementById("grp").style.background = "#6FA3C9";
+					document.getElementById("grp").style.color = "#ffffff";
+					document.getElementById("grplio").innerHTML = "1";
+				} else {
+					document.getElementById("grp").style.background = "transparent";
+					document.getElementById("grp").style.color = "#000000";
+					document.getElementById("grplio").innerHTML = "0";
+				}
+			}
+			function expchk() {
+				var lio = document.getElementById("grplio").innerHTML;
+				if(lio == "0") {
+					document.getElementById("exp").style.background = "#6FA3C9";
+					document.getElementById("exp").style.color = "#ffffff";
+					document.getElementById("explio").innerHTML = "1";
+				} else {
+					document.getElementById("exp").style.background = "transparent";
+					document.getElementById("exp").style.color = "#000000";
+					document.getElementById("explio").innerHTML = "0";
+				}
+			}
 			function checkcon() {
 				var check = document.getElementById("ansone").value.length;
 				if(check < 1) {
