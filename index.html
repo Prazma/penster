@@ -8,6 +8,7 @@
 			html {
 				overflow: auto;
 				-webkit-overflow-scrolling: touch;
+				-webkit-tap-highlight-color: #ffffff;
 			}
 			body {
 				background: url("https://raw.githubusercontent.com/Prazma/penster/master/img/bckclg.png");
@@ -132,14 +133,21 @@
 				if(qnum == "1") {
 					var titl = document.getElementById("ansone").value;
 					document.getElementById("docstitl").innerHTML = titl;
-					document.getElementById("formone").style.opacity = "0";
-					setTimeout( function () {
-						document.getElementById("formone").style.display = "none";
-						document.getElementById("formtwo").style.display = "block";
-						document.getElementById("formtwo").style.opacity = "1";
-					}, 500)
+					document.getElementById("formone").style.display = "none";
+					document.getElementById("formtwo").style.display = "block";
 					document.getElementById("nxtbtn").disabled = true;
 					document.getElementById("bckbtn").disabled = false;
+					document.getElementById("formstat").innerHTML = "2";
+				}
+			}
+			function bckq() {
+				var qnum = document.getElementById("formstat").innerHTML;
+				if(qnum == "2") {
+					document.getElementById("formone").style.display = "block";
+					document.getElementById("formtwo").style.display = "none";
+					document.getElementById("nxtbtn").disabled = true;
+					document.getElementById("bckbtn").disabled = true;
+					document.getElementById("formstat").innerHTML = "1";
 				}
 			}
 			function sclltop() {
