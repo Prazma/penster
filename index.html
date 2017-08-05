@@ -97,7 +97,21 @@
 				width: 100%;
 				text-align: center;
 			}
+			.chk {
+				width: 20px;
+				height: 20px;
+				background: transparent;
+				border: solid;
+				border-width: 1px;
+				border-color: #bfbfbf;
+				border-radius: 2px;
+				margin-right: 10px;
+			}
+			.chk:hover {
+				background: #6FA3C9;
+			}
 		</style>
+		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
 	</head>
 	<body>
 		<div id="wrap">
@@ -112,8 +126,8 @@
 				</div>
 				<div id="formtwo" style="display: none;" class="xsd">
 					<span id="type">必須</span><br>
-					<span id="ques">POOPUS 11</span><br><br>
-					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()">
+					<span id="ques">レポートは以下のものは必要ですか？</span><br><br>
+					<button class="chk" onclick="pckchk()"></button><span>写真・画像</span>
 				</div>
 			</div>
 		</div>
@@ -126,6 +140,7 @@
 			<span id="docstitl">1</span>
 		</div>
 		<script>
+			function pckchk() {}
 			function checkcon() {
 				var check = document.getElementById("ansone").value.length;
 				if(check < 1) {
@@ -141,7 +156,7 @@
 					document.getElementById("docstitl").innerHTML = titl;
 					document.getElementById("formone").style.display = "none";
 					document.getElementById("formtwo").style.display = "block";
-					document.getElementById("nxtbtn").disabled = true;
+					document.getElementById("nxtbtn").disabled = false;
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "2";
 				}
