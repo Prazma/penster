@@ -128,7 +128,13 @@
 					<span id="ques">レポートは以下のものは必要ですか？</span><br><br>
 					<button class="chk" id="pck" onclick="pckchk()">画像・写真</button>
 					<button class="chk" id="grp" onclick="grpchk()">図やグラフ</button>
-					<button class="chk" id="exp" onclick="expchk()">研究・調査</button>
+					<button class="chk" id="exp" onclick="expchk()">参考文献</button>
+				</div>
+				<div id="formthre" style="display: none;" class="xsd">
+					<span id="type">必須</span><br>
+					<span id="ques">参考文献について、<br>どちらかを選んでください</span><br><br>
+					<button class="chk" id="pol" onclick="saschk(this)">リサーチした</button>
+					<button class="chk" id="tol" onclick="saschk(this)">リサーチしてない</button>
 				</div>
 			</div>
 		</div>
@@ -142,6 +148,7 @@
 			<span id="pcklio">0</span>
 			<span id="grplio">0</span>
 			<span id="explio">0</span>
+			<span id="selexp">nan</span>
 		</div>
 		<script>
 			function pckchk() {
@@ -154,6 +161,29 @@
 					document.getElementById("pck").style.background = "transparent";
 					document.getElementById("pck").style.color = "#000000";
 					document.getElementById("pcklio").innerHTML = "0";
+				}
+			}
+			function saschk(star) {
+				var lio = document.getElementById("selexp").innerHTML;
+				if(lio == "nan") {
+					star.style.background = "#6FA3C9";
+					star.style.color = "#ffffff";
+					document.getElementById("selexp").innerHTML = "1";
+					document.getElementById("nxtbtn").disabled = false;
+				} else if (lio == "1") {
+					document.getElementById("pol").style.background = "transparent";
+					document.getElementById("pol").style.color = "#000000";
+					document.getElementById("tol").style.background = "#6FA3C9";
+					document.getElementById("tol").style.color = "#ffffff";
+					document.getElementById("selexp").innerHTML = "2";
+					document.getElementById("nxtbtn").disabled = false;
+				} else if (lio == "2") {
+					document.getElementById("tol").style.background = "transparent";
+					document.getElementById("tol").style.color = "#000000";
+					document.getElementById("pol").style.background = "#6FA3C9";
+					document.getElementById("pol").style.color = "#ffffff";
+					document.getElementById("selexp").innerHTML = "1";
+					document.getElementById("nxtbtn").disabled = false;
 				}
 			}
 			function grpchk() {
@@ -199,6 +229,15 @@
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "2";
 				}
+				if(qnum == "2") {
+					var titl = document.getElementById("ansone").value;
+					document.getElementById("docstitl").innerHTML = titl;
+					document.getElementById("formtwo").style.display = "none";
+					document.getElementById("formthre").style.display = "block";
+					document.getElementById("nxtbtn").disabled = true;
+					document.getElementById("bckbtn").disabled = false;
+					document.getElementById("formstat").innerHTML = "3";
+				}
 			}
 			function bckq() {
 				var qnum = document.getElementById("formstat").innerHTML;
@@ -208,6 +247,13 @@
 					document.getElementById("nxtbtn").disabled = false;
 					document.getElementById("bckbtn").disabled = true;
 					document.getElementById("formstat").innerHTML = "1";
+				}
+				if(qnum == "3") {
+					document.getElementById("formtwo").style.display = "block";
+					document.getElementById("formthre").style.display = "none";
+					document.getElementById("nxtbtn").disabled = false;
+					document.getElementById("bckbtn").disabled = false;
+					document.getElementById("formstat").innerHTML = "2";
 				}
 			}
 			function sclltop() {
