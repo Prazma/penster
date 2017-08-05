@@ -115,6 +115,21 @@
 				font-weight: bold;
 				margin-top: 10px;
 			}
+			.chkt {
+				width: 100%;
+				padding: 10px;
+				font-size: 18px;
+				background: transparent;
+				border: solid;
+				border-width: 3px;
+				border-color: #6FA3C9;
+				border-radius: 3px;
+				font-weight: bold;
+				margin-top: 10px;
+			}
+			.chkt:active {
+				background: #ffffff;
+			}
 			#splash {
 				background: #6FA3C9;
 				position: fixed;
@@ -168,12 +183,14 @@
 			<span id="selexp">nan</span>
 		</div>
 		<script>
-			setTimeout( function () {
-				document.getElementById("splash").style.opacity = "0";
-			}, 1000)
-			setTimeout( function () {
-				document.getElementById("splash").style.display = "none";
-			}, 1500)
+			function strt() {
+				setTimeout( function () {
+					document.getElementById("splash").style.opacity = "0";
+				}, 1000)
+				setTimeout( function () {
+					document.getElementById("splash").style.display = "none";
+				}, 1500)
+			}
 			function pckchk() {
 				sclltop();
 				var lio = document.getElementById("pcklio").innerHTML;
@@ -298,7 +315,8 @@
 		</script>
 		<div id="splash">
 			<br><br><span id="titl">Penster</span><br>
-			<br><span id="subtitl">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span>
+			<br><span id="subtitl">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span><br><br>
+			<button class="chkt" id="pck" onclick="strt()" style="border-color: #ffffff; width: 90%; color: #ffffff;">はじめる</button>
 		</div>
 	</body>
 </html>
