@@ -152,6 +152,7 @@
 		</div>
 		<script>
 			function pckchk() {
+				sclltop();
 				var lio = document.getElementById("pcklio").innerHTML;
 				if(lio == "0") {
 					document.getElementById("pck").style.background = "#6FA3C9";
@@ -164,6 +165,7 @@
 				}
 			}
 			function saschk(star) {
+				sclltop();
 				var lio = document.getElementById("selexp").innerHTML;
 				if(lio == "nan") {
 					star.style.background = "#6FA3C9";
@@ -187,6 +189,7 @@
 				}
 			}
 			function grpchk() {
+				sclltop();
 				var lio = document.getElementById("grplio").innerHTML;
 				if(lio == "0") {
 					document.getElementById("grp").style.background = "#6FA3C9";
@@ -199,6 +202,7 @@
 				}
 			}
 			function expchk() {
+				sclltop();
 				var lio = document.getElementById("explio").innerHTML;
 				if(lio == "0") {
 					document.getElementById("exp").style.background = "#6FA3C9";
@@ -211,6 +215,7 @@
 				}
 			}
 			function checkcon() {
+				sclltop();
 				var check = document.getElementById("ansone").value.length;
 				if(check < 1) {
 					document.getElementById("nxtbtn").disabled = true;
@@ -219,6 +224,7 @@
 				}
 			}
 			function nxtq() {
+				sclltop();
 				var qnum = document.getElementById("formstat").innerHTML;
 				if(qnum == "1") {
 					var titl = document.getElementById("ansone").value;
@@ -234,12 +240,18 @@
 					document.getElementById("docstitl").innerHTML = titl;
 					document.getElementById("formtwo").style.display = "none";
 					document.getElementById("formthre").style.display = "block";
-					document.getElementById("nxtbtn").disabled = true;
+					var lio = document.getElementById("selexp").innerHTML;
+					if(lio == "nan") {
+						document.getElementById("nxtbtn").disabled = true;
+					} else {
+						document.getElementById("nxtbtn").disabled = false;
+					}
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "3";
 				}
 			}
 			function bckq() {
+				sclltop();
 				var qnum = document.getElementById("formstat").innerHTML;
 				if(qnum == "2") {
 					document.getElementById("formone").style.display = "block";
