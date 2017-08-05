@@ -27,7 +27,6 @@
 				margin-right: auto;
 				margin-left: auto;
 				margin-top: 20px;
-				min-height: 300px;
 				transition: 0.5s;
 				-webkit-transition: 0.5s;
 			}
@@ -41,6 +40,7 @@
 				margin-right: auto;
 				margin-left: auto;
 				margin-top: 20px;
+				margin-bottom: 20px;
 			}
 			.bidput {
 				border: none;
@@ -84,6 +84,12 @@
 				transition: 0.5s;
 				-webkit-transition: 0.5s;
 			}
+			.siner {
+				position: fixed;
+				bottom: 10px;
+				width: 100%;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
@@ -95,7 +101,7 @@
 				<div id="formone" class="xsd">
 					<span id="type">必須</span><br>
 					<span id="ques">レポートのタイトルを入力してください</span><br><br>
-					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()">
+					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()" onblur="sclltop()">
 				</div>
 				<div id="formtwo" style="display: none;" class="xsd">
 					<span id="type">必須</span><br>
@@ -104,7 +110,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="wrap" style="text-align: center;">
+		<div class="siner" style="text-align: center;">
 				<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
 				<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
@@ -135,6 +141,10 @@
 					document.getElementById("nxtbtn").disabled = true;
 					document.getElementById("bckbtn").disabled = false;
 				}
+			}
+			function sclltop() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
 			}
 		</script>
 	</body>
