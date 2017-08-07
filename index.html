@@ -201,7 +201,7 @@
 					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()" onblur="sclltop()">
 				</div>
 				<div id="formtwo" style="display: none;" class="xsd">
-					<span id="type">必須</span><br>
+					<span id="type">オプショナル</span><br>
 					<span id="ques">レポートは以下のものは必要ですか？</span><br><br>
 					<button class="chk" id="pck" onclick="pckchk()">画像・写真</button>
 					<button class="chk" id="grp" onclick="grpchk()">図やグラフ</button>
@@ -212,6 +212,11 @@
 					<span id="ques">参考文献について、<br>どちらかを選んでください</span><br><br>
 					<button class="chk" id="pol" onclick="saschk(this)">リサーチした</button>
 					<button class="chk" id="tol" onclick="saschk(this)">リサーチしてない</button>
+				</div>
+				<div id="formfour" style="display: none;" class="xsd">
+					<span id="type">必須</span><br>
+					<span id="ques">レポートの内容を短く説明してください</span><br><br>
+					<input id="ansfour" class="bidput" placeholder="ここに入力" onkeyup="checkcon()" onblur="sclltop()">
 				</div>
 			</div>
 		</div>
@@ -331,6 +336,15 @@
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "3";
 				}
+				if(qnum == "3") {
+					var titl = document.getElementById("ansone").value;
+					document.getElementById("docstitl").innerHTML = titl;
+					document.getElementById("formthre").style.display = "none";
+					document.getElementById("formfour").style.display = "block";
+					var lio = document.getElementById("selexp").innerHTML;
+					document.getElementById("nxtbtn").disabled = true;
+					document.getElementById("bckbtn").disabled = false;
+				}
 			}
 			function bckq() {
 				sclltop();
@@ -348,6 +362,13 @@
 					document.getElementById("nxtbtn").disabled = false;
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "2";
+				}
+				if(qnum == "4") {
+					document.getElementById("formthre").style.display = "block";
+					document.getElementById("formfour").style.display = "none";
+					document.getElementById("nxtbtn").disabled = false;
+					document.getElementById("bckbtn").disabled = false;
+					document.getElementById("formstat").innerHTML = "3";
 				}
 			}
 			function sclltop() {
