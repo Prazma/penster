@@ -3,6 +3,18 @@
 	<head>
 		<title>Penster</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+		<script>
+			var config = {
+				apiKey: "AIzaSyDylZvpAHL4vYccaPY6042oKy3Nup9z-aY",
+				authDomain: "penster-5ecab.firebaseapp.com",
+				databaseURL: "https://penster-5ecab.firebaseio.com",
+				projectId: "penster-5ecab",
+				storageBucket: "penster-5ecab.appspot.com",
+				messagingSenderId: "900040434845"
+			};
+			firebase.initializeApp(config);
+		</script>
 		<script src="https://raw.githubusercontent.com/lazd/iNoBounce/master/inobounce.js"></script>
 		<style>
 			html {
@@ -43,7 +55,7 @@
 				color: #ffffff;
 				font-weight: bold;
 			}
-			#subtun {
+			#subtitl {
 				font-size: 17px;
 				color: #ffffff;
 				font-weight: bold;
@@ -141,6 +153,33 @@
 				transition: 0.5s;
 				-webkit-transition: 0.5s;
 			}
+			#hori {
+				background: #FFFFFF;
+				width: 90%;
+				margin-left: auto;
+				margin-top: 20px;
+				margin-right: auto;
+				border-radius: 6px;
+				padding: 15px 0px 15px 0px;
+			}
+			.formput {
+				width: 90%;
+				padding: 10px;
+				font-size: 18px;
+				background: transparent;
+				border: solid;
+				border: solid;
+				border-width: 3px;
+				outline: none;
+				border-color: #bfbfbf;
+			}
+			hr {
+				border: solid;
+				border-width: 1px;
+				border-color: #ffffff;
+				border-radius: 2px;
+				width: 80%;
+			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
 	</head>
@@ -156,7 +195,7 @@
 					<input id="ansone" class="bidput" placeholder="ここに入力" onkeyup="checkcon()" onblur="sclltop()">
 				</div>
 				<div id="formtwo" style="display: none;" class="xsd">
-					<span id="type">オプショナル</span><br>
+					<span id="type">必須</span><br>
 					<span id="ques">レポートは以下のものは必要ですか？</span><br><br>
 					<button class="chk" id="pck" onclick="pckchk()">画像・写真</button>
 					<button class="chk" id="grp" onclick="grpchk()">図やグラフ</button>
@@ -168,16 +207,11 @@
 					<button class="chk" id="pol" onclick="saschk(this)">リサーチした</button>
 					<button class="chk" id="tol" onclick="saschk(this)">リサーチしてない</button>
 				</div>
-				<div id="formfour" style="display: none;" class="xsd">
-					<span id="type">必須</span><br>
-					<span id="ques">レポートのテーマについて記入してください</span><br><br>
-					<input id="ansfour" class="bidput" style="font-size: 20px;" placeholder="例：レポートのテーマについてまとめる" onkeyup="checkcon()" onblur="sclltop()">
-				</div>
 			</div>
 		</div>
 		<div class="siner" style="text-align: center;">
-			<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
-			<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
+				<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
+				<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
 		<div style="display: none">
 			<span id="formstat">1</span>
@@ -292,15 +326,6 @@
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "3";
 				}
-				if(qnum == "3") {
-					var titl = document.getElementById("ansone").value;
-					document.getElementById("docstitl").innerHTML = titl;
-					document.getElementById("formthre").style.display = "none";
-					document.getElementById("formfour").style.display = "block";
-					var lio = document.getElementById("selexp").innerHTML;
-					document.getElementById("nxtbtn").disabled = true;
-					document.getElementById("bckbtn").disabled = false;
-				}
 			}
 			function bckq() {
 				sclltop();
@@ -319,13 +344,6 @@
 					document.getElementById("bckbtn").disabled = false;
 					document.getElementById("formstat").innerHTML = "2";
 				}
-				if(qnum == "4") {
-					document.getElementById("formthre").style.display = "block";
-					document.getElementById("formfour").style.display = "none";
-					document.getElementById("nxtbtn").disabled = false;
-					document.getElementById("bckbtn").disabled = false;
-					document.getElementById("formstat").innerHTML = "3";
-				}
 			}
 			function sclltop() {
 				document.body.scrollTop = 0;
@@ -333,9 +351,38 @@
 			}
 		</script>
 		<div id="splash">
-			<br><br><span id="titl">Penster</span><br>
-			<br><span id="subtun">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span><br><br>
-			<button class="chkt" id="start3rs" onclick="strt()" style="border-color: #ffffff; width: 90%; color: #ffffff;">はじめる</button><br>
+			<div>
+				<br><br><span id="titl">Penster</span><br>
+				<br><span id="subtitl">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span><br><br>
+			<button class="chkt" id="pck" onclick="strt()" style="border-color: #ffffff; width: 90%; color: #ffffff;">はじめる</button>
+			</div>
+			<hr>
+			<div id="supshout">
+				<button class="chkt" id="logprmsn" onclick="logshou()" style="border-color: #ffffff; width: 90%; color: #ffffff;">ログイン・アカウント作成</button><br>
+				<span id="subtitl">ログインして書類を<br>保存・共有・グループ編集<br>することができます</span>
+				<span id="subtitl"style="position: fixed; bottom: 5px; left: 10px;">©︎2017 Penster, Inc.</span>
+			</div>
+			<div id="hori" style="display: none;">
+				<input type="text" id="usrhori" placeholder="メールアドレス" class="formput"><br><br>
+				<input type="password" id="pswhori" placeholder="パスワード" class="formput"><br>
+				<br><br>
+				<button class="chkt" style="width: 90%;">ログイン・アカウント作成</button>
+			</div>
+			<script>
+				function logshou() {
+					document.getElementById("hori").style.display = "block";
+					document.getElementById("supshout").style.display = "none";
+				}
+				function loghori() {
+					var email;
+					var password;
+					firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						alert(errorMessage);
+					});
+				}
+			</script>
 		</div>
 	</body>
 </html>
