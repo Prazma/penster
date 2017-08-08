@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Penster - レポートを書いてくれるウェブサービス</title>
+		<title>tacopen - レポートを書いてくれるウェブサービス</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel="apple-touch-icon" href="img/penster.png">
-		<meta name="apple-mobile-web-app-title" content="Penster">
+		<meta name="apple-mobile-web-app-title" content="tacopen">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
 		<link rel="apple-touch-startup-image" href="img/splash.png">
@@ -380,12 +380,12 @@
 			}
 		</script>
 		<div id="splash">
-			<div>
-				<br><br><span id="titl">Penster</span><br>
+			<br><br><span id="titl" style="font-family: monospace; font-size: 40px;">tacopen</span><br>
+			<div id="bfr">
 				<br><span id="subtitl">誰でも数分で<br>クオリティーの高いレポートが<br>簡単に作れるアプリ</span><br><br>
 			<button class="chkt" id="pck" onclick="strt()" style="border-color: #ffffff; width: 90%; color: #ffffff;">はじめる</button>
-			</div>
 			<hr>
+			</div>
 			<div id="supshout">
 				<button class="chkt" id="logprmsn" onclick="logshou()" style="border-color: #ffffff; width: 90%; color: #ffffff;">ログイン・アカウント作成</button><br>
 				<span id="subtitl" style="font-size: 12px;">ログインして書類を<br>保存・共有・グループ編集することができます</span>
@@ -395,12 +395,14 @@
 				<input type="text" id="usrhori" placeholder="メールアドレス" class="formput"><br><br>
 				<input type="password" id="pswhori" placeholder="パスワード" class="formput"><br>
 				<br><br>
-				<button class="chkt" style="width: 80%;">ログイン・アカウント作成</button>
+				<button class="chkt" style="width: 80%;">ログイン・アカウント作成</button><br>
+				<button class="chkt" style="width: 80%;" onclick="strt()">スキップ</button>
 			</div>
 			<script>
 				function logshou() {
 					document.getElementById("hori").style.display = "block";
 					document.getElementById("supshout").style.display = "none";
+					document.getElementById("bfr").style.display = "none";
 				}
 				function loghori() {
 					var email;
@@ -415,3 +417,5 @@
 		</div>
 	</body>
 </html>
+
+
