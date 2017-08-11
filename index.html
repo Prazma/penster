@@ -263,12 +263,10 @@
 				padding: 0px 0px;
 				border: none;
 			}
-			@media screen and (orientation: landscape) {
-				.use-portrait { display: block; }
-			}
 			.use-portrait {
 				background: url("img/method-draw-image.svg"),#6FA3C9;
 				position: fixed;
+				display: none;
 				top: 0;
 				width: 100%;
 				height: 100vh;
@@ -278,6 +276,9 @@
 				-webkit-transition: 0.5s;
 				-webkit-transform: rotate(90deg);    
 				transform: rotate(90deg);  
+			}
+			@media screen and (orientation: landscape) {
+				.use-portrait { display: block; }
 			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
@@ -582,7 +583,7 @@
 				}
 			</script>
 		</div>
-		<div class="use-portrait" style="display: none;">
+		<div class="use-portrait">
 			<br><span id="titl" style="font-family: monospace; font-size: 30px;">スマホを縦向きに<br>してください</span>
 		</div>
 	</body>
