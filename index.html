@@ -34,7 +34,7 @@
 				user-select: none;
 			}
 			body {
-				background: url("https://raw.githubusercontent.com/Prazma/penster/master/img/bckclg.png");
+				background: #f1f1f1;
 				background-size: 100% 100%;
 				background-repeat: no-repeat;
 				background-attachment: fixed;
@@ -44,7 +44,7 @@
 				font-weight: lighter;
 				font-family: sans-serif;
 			}
-			#formport {
+			.whitecon {
 				background: #ffffff;
 				padding: 10px 10px 10px 10px;
 				border-radius: 6px;
@@ -54,6 +54,18 @@
 				margin-top: 20px;
 				transition: 0.5s;
 				-webkit-transition: 0.5s;
+			}
+			.dwhitecon {
+				background: #ffffff;
+				border-radius: 6px;
+				width: 90%;
+				padding: 10px 15px;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 20px;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+				border: 1px solid #d1d5da;
 			}
 			#titl {
 				font-size: 30px;
@@ -187,15 +199,53 @@
 			hr {
 				border: solid;
 				border-width: 1px;
-				border-color: #ffffff;
+				border-color: #f1f1f1;
 				border-radius: 2px;
 				width: 80%;
+			}
+			.octicon {
+				display: inline-block;
+				vertical-align: text-top;
+				fill: currentColor;
+			}
+			.mens {
+				position: absolute;
+				padding: 5px 8px;
+				top: 8px;
+				left: 8px;
+				line-height: 1;
+				color: inherit;
+				background: transparent;
+				border: 0;
+				border-radius: 5px;
+			}
+			#navi {
+				background: #ffffff;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				border: none;
+				border-bottom: solid;
+				border-bottom-width: 1px;
+				border-bottom-color: #bfbfbf;
+			}
+			.dashhr {
+				border-color: #252525;
+			}
+			.nwbtn {
+				color: #000;
+				background-color: #eff3f6;
+				border: 1px solid rgba(27,31,35,0.2);
+				width: 60%;
+				padding: 7px 7px;
 			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
 	</head>
 	<body>
-		<div id="formport">
+		<div id="formport" class="whitecon" style="display: none; margin-top: 55px;">
 			<div id="wrap">
 				<div id="formone" class="xsd">
 					<span id="type">必須</span><br>
@@ -222,7 +272,38 @@
 				</div>
 			</div>
 		</div>
-		<div class="siner" style="text-align: center;">
+		<div id="navi">
+			<button class="mens">
+				<svg aria-hidden="true" class="octicon octicon-three-bars" height="24" version="1.1" viewBox="0 0 12 16" width="18"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg>
+			</button>
+		</div>
+		<div id="dashboard">
+			<div class="dwhitecon" style="margin-top: 55px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-color: #eaecef;">
+				<div style="text-align: center;">
+					<span><strong>ダッシュボード</strong></span>
+				</div>
+			</div>
+			<div id="itmscontdiv">
+				<div id="noitms" class="dwhitecon" style="margin-top: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-top-color: #eaecef;border-bottom-color: #eaecef; border-bottom-right-radius: 0px;">
+					<div style="text-align: left;">
+						<span>
+							<div style="text-align: center;">
+								<svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+								<span style="margin-left: 10px;">保存されているレポートがありません</span>
+								<svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg><br><br>
+								<button class="nwbtn" onclick="nwreport()">新しいレポート</button>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="dwhitecon" style="margin-top: 0px;border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-color: #eaecef;">
+				<div style="text-align: center;">
+					<span><strong> </strong></span>
+				</div>
+			</div>
+		</div>
+		<div id="signix" class="siner" style="text-align: center; display: none;">
 				<button id="bckbtn" disabled="true" class="output" onclick="bckq()">＜ 戻る</button>
 				<button id="nxtbtn" disabled="true" class="output" onclick="nxtq()">次のステップ ＞</button>
 		</div>
@@ -240,6 +321,12 @@
 				setTimeout( function () {
 					document.getElementById("splash").style.display = "none";
 				}, 500)
+			}
+			function nwreport() {
+				document.body.style.background = 'url("https://raw.githubusercontent.com/Prazma/penster/master/img/bckclg.png")';
+				document.getElementById("dashboard").style.display = "none";
+				document.getElementById("formport").style.display = "block";
+				document.getElementById("signix").style.display = "block";
 			}
 			function pckchk() {
 				sclltop();
@@ -417,5 +504,3 @@
 		</div>
 	</body>
 </html>
-
-
