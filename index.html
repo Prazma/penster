@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>tacopen - レポートを書いてくれるウェブサービス</title>
+		<title>tacopen - レポート・報告書を書いてくれるウェブサービス</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel="apple-touch-icon" href="img/penster.png">
 		<meta name="apple-mobile-web-app-title" content="tacopen">
@@ -264,7 +264,7 @@
 				border: none;
 			}
 			.use-portrait {
-				background: url("img/method-draw-image.svg"),#6FA3C9;
+				background: #6FA3C9;
 				position: fixed;
 				display: none;
 				top: 0;
@@ -277,8 +277,17 @@
 				-webkit-transform: rotate(90deg);    
 				transform: rotate(90deg);  
 			}
+			.sdsd {
+				background: #6FA3C9;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				display: none;
+			}
 			@media screen and (orientation: landscape) {
 				.use-portrait { display: block; }
+				.sdsd { display: block; }
 			}
 		</style>
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/penster/master/css/check.css">
@@ -582,6 +591,9 @@
 					});
 				}
 			</script>
+		</div>
+		<div class="sdsd">
+			
 		</div>
 		<div class="use-portrait">
 			<br><span id="titl" style="font-family: monospace; font-size: 30px;">スマホを縦向きに<br>してください</span>
